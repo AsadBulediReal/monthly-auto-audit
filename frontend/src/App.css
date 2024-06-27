@@ -1,0 +1,469 @@
+:root {
+  /* CSS HEX */
+  --gray: #16191f;
+  --ivory: #fffff3ff;
+  --white: white;
+  --light-azure: #61b0ff;
+  --malachite: rgb(0, 150, 60);
+  --oxford-blue: #003049ff;
+  --dark-blue: #0040ff;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--white);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  opacity: 1;
+  background-image: radial-gradient(
+      #141414 0.8500000000000001px,
+      transparent 0.8500000000000001px
+    ),
+    radial-gradient(#141414 0.8500000000000001px, #ffffff 0.8500000000000001px);
+  background-size: 34px 34px;
+  background-position: 0 0, 17px 17px;
+}
+
+ul,
+a {
+  list-style: none;
+  text-decoration: none;
+  color: var(--ivory);
+  padding: 0;
+  margin: 0;
+  transition: all 250ms ease-in-out;
+}
+
+.btn {
+  color: var(--ivory);
+  background-color: var(--gray);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid var(--white);
+  transition: all 250ms ease-in-out;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--dark-blue);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+/* Upload page */
+.upload-box {
+  width: 50%;
+  margin: 0 auto;
+  background-color: var(--ivory);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.425);
+  margin-top: 4rem;
+  color: var(--gray);
+  text-align: center;
+}
+.upload-box form > p,
+.upload-box .loading-area {
+  margin: 0;
+}
+
+.upload-box p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.upload-box form > p,
+.upload-box .loading-area {
+  text-align: center;
+  font-weight: bold;
+}
+
+.upload-box form > p {
+  margin: 1rem 0 2rem 0;
+  transition: all 250ms ease-in-out;
+}
+
+.upload-box form > p:hover {
+  color: var(--white);
+  transition: all 250ms ease-in-out;
+}
+
+.upload-box .upload-icon {
+  font-size: 14rem;
+  color: var(--gray);
+}
+.upload-box form {
+  display: flex;
+  color: var(--gray);
+  cursor: pointer;
+  margin: 20px 0 10px 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px dashed var(--gray);
+  gap: 0;
+  padding: 2rem;
+}
+
+section .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: var(--light-azure);
+  list-style: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--ivory);
+}
+
+section .row svg {
+  color: var(--dark-blue);
+  font-size: 50px;
+}
+
+section .row .details span {
+  font-size: 1rem;
+}
+.loading-area .row .content {
+  width: 100%;
+  margin-left: 15px;
+}
+
+.loading-area .details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+  justify-content: space-between;
+}
+
+.loading-area .content .loading-bar {
+  height: 20px;
+  width: 50%;
+  background-color: var(--ivory);
+  border-radius: 20px;
+}
+
+.content .loading-bar .loading {
+  height: 100%;
+  border-radius: inherit;
+  background-color: #0040ff;
+}
+
+.uploaded-area {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.uploaded-area.onprogress {
+  max-height: 150px;
+}
+
+.uploaded-area::-webkit-scrollbar {
+  width: 0;
+}
+
+.uploaded-area .row .content {
+  display: flex;
+  align-items: center;
+}
+
+.uploaded-area .row .details {
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.uploaded-area .row .details .size {
+  color: var(--ivory);
+  font-size: 14px;
+  justify-content: start;
+  display: flex;
+}
+
+.row .name {
+  font-size: 12px;
+  width: 280px;
+  text-align: start;
+}
+
+.uploaded-area .check {
+  color: var(--dark-blue);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* report */
+
+.report form {
+  gap: 0;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.report .by-cmd {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 550px;
+}
+
+.report .by-cmd div .date {
+  gap: 0;
+  background-color: var(--gray);
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.report .by-cmd input {
+  padding-left: 10px;
+  padding-bottom: 18px;
+}
+
+.report .by-cmd div .date {
+  flex-direction: row;
+}
+
+.report .input-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+form select,
+input {
+  padding: 1rem 2rem;
+  color: var(--ivory);
+  background-color: var(--gray);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.date label {
+  color: var(--ivory);
+}
+
+.report .multi-select div {
+  color: var(--ivory) !important;
+}
+
+.rmsc {
+  --rmsc-gray: var(--ivory) !important;
+  --rmsc-hover: var(--oxford-blue) !important;
+  --rmsc-bg: var(--gray) !important;
+  --rmsc-selected: var(--oxford-blue) !important;
+}
+
+input::placeholder {
+  color: var(--ivory) !important;
+}
+
+.report .multi-select div input:focus-visible {
+  background-color: var(--oxford-blue) !important;
+}
+
+.rmsc {
+  margin-bottom: 1rem;
+}
+
+.by-cmd h1 {
+  color: var(--gray);
+}
+.rmsc .dropdown-container {
+  border: none !important;
+  padding: 0.5rem;
+}
+
+.report .date-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  z-index: 10;
+  background-color: var(--gray);
+  background-color: #000000;
+  opacity: 1;
+  background-image: linear-gradient(
+      30deg,
+      #414141 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #414141 87.5%,
+      #414141
+    ),
+    linear-gradient(
+      150deg,
+      #414141 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #414141 87.5%,
+      #414141
+    ),
+    linear-gradient(
+      30deg,
+      #414141 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #414141 87.5%,
+      #414141
+    ),
+    linear-gradient(
+      150deg,
+      #414141 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #414141 87.5%,
+      #414141
+    ),
+    linear-gradient(
+      60deg,
+      #41414177 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #41414177 75%,
+      #41414177
+    ),
+    linear-gradient(
+      60deg,
+      #41414177 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #41414177 75%,
+      #41414177
+    );
+  background-size: 30px 53px;
+  background-position: 0 0, 0 0, 15px 26px, 15px 26px, 0 0, 15px 26px;
+}
+
+a:hover {
+  background-color: var(--dark-blue);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+nav img {
+  width: 120px;
+  height: 120px;
+}
+
+nav .logo-container a {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo-container div,
+.logo-container .cmd-text {
+  text-align: center;
+}
+
+nav .logo-container div p:nth-child(1),
+.logo-container .cmd-text p:nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+nav .logo-container div p:nth-child(2),
+.logo-container .cmd-text p:nth-child(2) {
+  font-weight: bold;
+  margin: 0;
+}
+
+nav .logo-container a:hover {
+  padding: 0;
+  background-color: transparent;
+  color: #b8b8b8;
+}
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 9;
+  margin-right: 2rem;
+}
+
+nav ul li {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+nav ul h2 {
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+nav ul h2 span {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding-left: 8px;
+  margin-bottom: 4px;
+}
+
+nav ul .drop-down div {
+  opacity: 0;
+  transition: all 250ms ease-in-out;
+}
+
+nav ul .open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 200px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  opacity: 1;
+  transition: all 250ms ease-in-out;
+}
+nav ul .open a {
+  padding: 1rem 0;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.loading {
+  font-size: 1.5rem;
+  animation: loading 2s linear infinite normal;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
