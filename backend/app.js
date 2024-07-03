@@ -195,7 +195,7 @@ app.post("/upload", async (req, res) => {
       const formatDate = record && record[7] ? record[7].split("-") : false;
 
       const date = formatDate
-        ? `${formatDate[0]}/${formatDate[1]}/${formatDate[2]}`
+        ? `${formatDate[2]}/${formatDate[1]}/${formatDate[0]}`
         : undefined;
 
       if (getCategorie === undefined) {
