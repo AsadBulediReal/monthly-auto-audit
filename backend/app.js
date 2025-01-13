@@ -162,6 +162,7 @@ app.post("/upload", async (req, res) => {
     const sheetName = workbook.SheetNames[0];
     const rawData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName], {
       header: 1,
+      raw: false,
     });
     return rawData;
   }
@@ -192,7 +193,8 @@ app.post("/upload", async (req, res) => {
       // const date =
       //   typeof record[7] === "string" ? record[7].split("-") : record[7];
 
-      const formatDate = record && record[7] ? record[7].split("-") : false;
+      const formatDate =
+        record && typeof record[7] === "string" ? record[7].split("-") : false;
 
       const date = formatDate
         ? `${formatDate[2]}/${formatDate[1]}/${formatDate[0]}`
@@ -207,7 +209,7 @@ app.post("/upload", async (req, res) => {
           Company: record[4] || "No Data",
           Amount: record[5] || 0,
           Channel: record[6] || "No Data",
-          "Transaction Date": date || 0,
+          "Transaction Date": record[7] || 0,
         });
         return;
       }
@@ -220,7 +222,7 @@ app.post("/upload", async (req, res) => {
         Company: record[4] || "No Data",
         Amount: record[5] || 0,
         Channel: record[6] || "No Data",
-        "Transaction Date": date || 0,
+        "Transaction Date": record[7] || 0,
       });
     });
   };
@@ -228,17 +230,17 @@ app.post("/upload", async (req, res) => {
   setTimeout(async () => {
     const data = await ConvetToJson(file);
 
-    if (data[1][0] !== "AUTO HBPS COMPANIES DAILY MIS") {
-      exists = true;
-      res.status(200).json({
-        status: 400,
-        message: "Please dont upload wrong file",
-        title: "Wrong file",
-      });
-      const folderPath = path.join(__dirname, "excel-file");
-      fs.rmSync(folderPath, { recursive: true });
-      return;
-    }
+    // if (data[1][0] !== "AUTO HBPS COMPANIES DAILY MIS") {
+    //   exists = true;
+    //   res.status(200).json({
+    //     status: 400,
+    //     message: "Please dont upload wrong file",
+    //     title: "Wrong file",
+    //   });
+    //   const folderPath = path.join(__dirname, "excel-file");
+    //   fs.rmSync(folderPath, { recursive: true });
+    //   return;
+    // }
     const categories = {
       10: "examination_semester",
       20: "admission_processing_fee",
@@ -257,7 +259,7 @@ app.post("/upload", async (req, res) => {
       61: "sutc",
     };
 
-    console.log(data[11]);
+    console.log(data[1]);
 
     const getCategorie = data[11][2].toString().substr(0, 2);
     const isTheDataExsits = await db[categories[getCategorie]].find({
@@ -283,6 +285,7 @@ app.post("/upload", async (req, res) => {
         }
       }
     }
+    console.log(execl[0]);
 
     await auditData(execl);
     if (!exists) {
